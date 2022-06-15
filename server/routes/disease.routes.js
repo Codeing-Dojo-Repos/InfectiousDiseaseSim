@@ -7,6 +7,8 @@ module.exports= (app) => {
 
     app.get('/api/Locations/:_id', DiseaseController.findLocationById)
 
+    app.get('/api/Locations/username/:username', DiseaseController.findLocationByUsername)
+
     app.delete('/api/Locations/:_id', DiseaseController.deleteLocation)
 
     app.put('/api/Locations/:_id', DiseaseController.updateLocation)
