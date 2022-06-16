@@ -34,23 +34,16 @@ const Dashboard = props => {
         setAccuracy(position.coords.accuracy)
         setAltitude(position.coords.altitude)
 
-        console.log(`Latitude: ${position.coords.latitude}`) 
-        console.log(`Longitude: ${position.coords.longitude}`)
-        console.log(`${position.coords.altitude}`)
-        console.log(`${position.coords.altitudeAccuracy}`)
-        console.log(`${position.coords.heading}`)
-        console.log(`${position.coords.speed}`)
-        console.log(`Timestamp: ${position.timestamp}`)
-
-        writeLocation(position)
+        logLocation(position)
+        writeLocationDb(position)
     }
 
-    const writeLocation = (position) => {
-        console.log(`before calling post, longitude is ${long}`)
+    const writeLocationDb = (position) => {
+        console.log(`before calling post, longitude is: ${long}`)
 
         axios.post('http://localhost:8000/api/locations',
         {
-            "username": "Jennifer",
+            "username": "Karl_1922",
             "longitude": position.coords.longitude,
             "latitude": position.coords.latitude,
             "covidVac": "true",
@@ -65,6 +58,13 @@ const Dashboard = props => {
         })
     }
 
+    const logLocation = (position) => {
+        console.log(`Latitude:${position.coords.latitude} Longitude: ${position.coords.longitude};`
+                + `Timestamp:${position.timestamp}`)
+        console.log(`Alt: ${position.coords.altitude} +/- ${position.coords.altitudeAccuracy};` 
+                + ` Heading: ${position.coords.heading} Speed: ${position.coords.speed}`)
+    }
+
     return (
         <div>
             
@@ -75,7 +75,7 @@ const Dashboard = props => {
                 <p>accuracy: {accuracy}</p>
                 <p>Altitude: {altitude}</p>
             
-            <button onClick={ writeLocation }>Write Location</button>
+            <button onClick={ writeLocationDb }>Write Location</button>
 
         </div>
     )

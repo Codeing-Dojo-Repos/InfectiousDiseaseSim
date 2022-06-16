@@ -20,8 +20,8 @@
 1. [x] update
 
 ## Write location page that queries
-1. queries location 
-2. writes the location in the database for the user
+1. [x] queries location 
+2. [x] writes the location in the database for the user
 3. route for location page should have :_id in route
 
 ## Create page to register as a user
