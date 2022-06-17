@@ -48,4 +48,4 @@
 ## Create All Users component
 1. [x] Query all users and print their locations in the table
 2. [x] Add link to delete a user
-3. [ ] Add link to update a user
+3. [x] Add link to update a user
