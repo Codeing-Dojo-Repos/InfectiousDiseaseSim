@@ -52,7 +52,10 @@ const AllUsers = props => {
                                 <td>{e.username}</td>
                                 <td>{e.longitude}, {e.latitude}</td>
                                 <td></td>
-                                <td>Edit | <button onClick={ () => {deleteHandler(e._id)}}>Delete</button></td>
+                                <td>
+                                    <Link to={`/edit/${e._id}`}>Edit</Link> | 
+                                    <button onClick={ () => {deleteHandler(e._id)}}>Delete</button>
+                                </td>
                             </tr>
                         ))
                     }
