@@ -25,21 +25,27 @@
 3. route for location page should have :_id in route
 
 ## Create page to register as a user
-1. create post axios request to create new user to database
-2. write their initial position
+1. [x] create post axios request to create new user to database
+2. [x] write their initial position
+3. [ ] username should be lifted state and used in every component
+
+## Set Express to listen on https
+1. [ ] Create cert/pem file with open ssl
+1. [ ] Read into express https server
 
 ## Create Dashboard component
-1. On dashboard, query current position
-2. print the position to the dashboard
+1. [x] On dashboard, query current position
+2. [x] print the position to the dashboard
 
 ## On Dashboard query all users
-1. Query all users and put in a large State array
-2. Write js algo to cal calculate the distance between user and all users
+1. [ ] Query all users and put in a large State array
+2. [ ] Write js algo to cal calculate the distance between user and all users
 
-## Write js algorythm to calculate distance
-1. filter the list to remove the current user
-1. between one user and all users in the list
+## Write js algorithm to calculate distance
+1. [ ] filter the list to remove the current user
+1. [ ] calculate distance between one user and all users in the list
 
 ## Create All Users component
-1. Query all users and print their locatinos in the table
-2. 
+1. [x] Query all users and print their locations in the table
+2. [x] Add link to delete a user
+3. [ ] Add link to update a user

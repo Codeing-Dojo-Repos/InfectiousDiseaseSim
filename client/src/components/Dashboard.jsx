@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Dashboard = props => {
@@ -69,6 +69,7 @@ const Dashboard = props => {
         <div>
             
             <h2>Location</h2>
+            <Link to="/AllUsers">All Users</Link> <Link to="/">Login</Link>
             
                 <p>Latitude: {lat}</p>
                 <p>Longitude: {long}</p>
