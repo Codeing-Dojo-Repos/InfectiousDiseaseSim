@@ -34,7 +34,7 @@ const Login = props => {
 
     const loginHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/locations',
+        axios.post('https://localhost:8443/api/locations',
         {
             "username": name,
             "longitude": long,
@@ -50,13 +50,13 @@ const Login = props => {
             console.log(`Error! ${err}`)
         })
 
-        //navigate('/')
+        navigate('/Dashboard')
     }
 
     return (
         <div>
             <h2>Login</h2>
-            <Link to="/Dashboard">Dashboard</Link> <Link to="/Login">Login</Link>
+            <Link to="/Dashboard">Dashboard</Link>
             <form onSubmit={loginHandler}>
                 <input type="text" onChange={(e) => setName(e.target.value)}></input>
                 <button>Login</button>

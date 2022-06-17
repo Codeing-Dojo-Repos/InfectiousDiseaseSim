@@ -8,7 +8,7 @@ const AllUsers = props => {
     //const navigate = useNavigate()
 
     useEffect( () => {
-        axios.get("http://localhost:8000/api/locations") // TODO: change to ssl
+        axios.get("https://localhost:8443/api/locations") // TODO: change to ssl
             .then( res => {
                 console.log(res)
                 setAllLocations(res.data)
@@ -19,7 +19,7 @@ const AllUsers = props => {
     }, [])
 
     const deleteHandler = (_id) => {
-        axios.delete(`http://localhost:8000/api/locations/${_id}`)
+        axios.delete(`https://localhost:8443/api/locations/${_id}`)
             .then( res => {
                 let filterLocations = allLocations.filter( e => e._id !== _id)
                 setAllLocations(filterLocations)

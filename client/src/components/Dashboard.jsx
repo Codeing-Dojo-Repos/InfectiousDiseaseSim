@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Dashboard = props => {
@@ -35,13 +35,13 @@ const Dashboard = props => {
         setAltitude(position.coords.altitude)
 
         logLocation(position)
-        writeLocationDb(position)
+        //writeLocationDb(position)
     }
 
     const writeLocationDb = (position) => {
         console.log(`before calling post, longitude is: ${long}`)
 
-        axios.post('http://localhost:8000/api/locations',
+        axios.post('https://localhost:8443/api/locations',
         {
             "username": "Karl_1922",
             "longitude": position.coords.longitude,
