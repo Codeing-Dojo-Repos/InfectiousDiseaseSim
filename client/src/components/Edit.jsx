@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Edit = () => {
@@ -13,7 +13,7 @@ const Edit = () => {
     const navigate = useNavigate()
 
     useEffect( () => {
-        axios.get(`http://localhost:8000/api/locations/${id}`)
+        axios.get(`https://localhost:8443/api/locations/${id}`)
             .then( res =>{
                 setLong(res.data.longitude)
                 setLat(res.data.latitude)
@@ -28,7 +28,7 @@ const Edit = () => {
     const editHandler = (e) => {
         console.log(`editing user ${id}`)
         e.preventDefault()
-        axios.put(`http://localhost:8000/api/locations/${id}`,
+        axios.put(`https://localhost:8443/api/locations/${id}`,
             {
                 "longitude": long,
                 "latitude": lat,
@@ -60,7 +60,7 @@ const Edit = () => {
 
                 <label>Efficacy</label>
                 <input type="text" onChange={ (e) => setEfficacy(e.target.value)} value={efficacy} />
-                
+
                 <button>Edit</button>
             </form>
             

@@ -30,8 +30,8 @@
 3. [ ] username should be lifted state and used in every component
 
 ## Set Express to listen on https
-1. [ ] Create cert/pem file with open ssl
-1. [ ] Read into express https server
+1. [x] Create cert/pem file with open ssl
+1. [x] Read into express https server
 
 ## Create Dashboard component
 1. [x] On dashboard, query current position
