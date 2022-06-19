@@ -28,3 +28,4 @@ const DiseaseSchema = new mongoose.Schema({
 const collection = 'UserLocation' // name of collection (table)
 const DiseaseModel = mongoose.model(collection, DiseaseSchema);
 module.exports = DiseaseModel;
+

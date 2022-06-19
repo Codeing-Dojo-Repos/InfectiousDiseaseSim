@@ -54,3 +54,7 @@
 ## Edit component
 1. 🟧 Apply considerations for input
 1. 
+
+## Links
+https://www.youtube.com/playlist?list=PLXEoYMZ_3QsVvA59DZvNF7RNrBTAbtcAs
+https://docs.google.com/spreadsheets/d/1uYw0oaNcgnUbwzYkCGwxfMmakamQrsjKe7LyzukIt-0/edit#gid=1356474684

@@ -12,4 +12,6 @@ module.exports= (app) => {
     app.delete('/api/Locations/:_id', DiseaseController.deleteLocation)
 
     app.put('/api/Locations/:_id', DiseaseController.updateLocation)
+
+    app.post('/api/vaccinations', DiseaseController.createVaccination)
 }

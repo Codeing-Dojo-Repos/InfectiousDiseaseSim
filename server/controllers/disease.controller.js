@@ -1,4 +1,5 @@
 const DiseaseModel = require('../models/disease.model')
+const VaccinationModel = require('../models/vaccination.model')
 
 module.exports = {
 
@@ -111,6 +112,19 @@ module.exports = {
             .catch( (err) => {
                 console.log(`error: ${err}`)
                 return res.status(500).send(err)
+            })
+    },
+
+    createVaccination: (req, res) => {
+        console.log('inside createVaccination')
+        VaccinationModel.create(req.body)
+            .then( obj => {
+                console.log('create vaccination record')
+                res.json(obj)
+            })
+            .catch( (err) => {
+                console.log(`error: ${err}`)
+                res.status(500).json(err)
             })
     }
 }
