@@ -52,7 +52,7 @@
 3. ✔ Add link to update a user
 
 ## Edit component
-1. 🟧 Apply considerations for input. Test with postman first
+1. ✔ Apply considerations for input. Test with postman first
 
 ## Tracking page
 1. Create tracking page for mobile phones

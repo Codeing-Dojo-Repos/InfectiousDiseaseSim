@@ -12,6 +12,8 @@ const Edit = () => {
     const {id} = useParams()
     const navigate = useNavigate()
 
+    const [errors, setErrors] = useState([])
+
     useEffect( () => {
         axios.get(`https://localhost:8443/api/locations/${id}`)
             .then( res =>{
@@ -50,6 +52,9 @@ const Edit = () => {
             })
             .catch( err => {
                 console.log(err)
+                if(err.response.status === 500){
+                    setErrors(err.response.data.errors)
+                }
             })
     }
 
@@ -68,6 +73,9 @@ const Edit = () => {
             })
             .catch( err => {
                 console.log(err)
+                if(err.response.status === 500){
+                    setErrors(err.response.data.errors)
+                }
             })
 
     }
@@ -83,7 +91,18 @@ const Edit = () => {
                 <label>Latitude</label>
                 <input type="text" onChange={ (e) => setLat(e.target.value)} value={lat} /> < br/>
 
-                <button>Edit Location</button>
+                <button>Edit Location</button><br />
+                {
+                    errors.longitude ?
+                    <span className='error-message'>{errors.longitude.message}<br/></span> 
+                    : null
+                }
+                {
+                    errors.latitude ?
+                    <span className='error-message'>{errors.latitude.message}</span>
+                    : null
+                }
+                
             </form>
 
             <form onSubmit={editVaccineHandler}>
@@ -93,7 +112,22 @@ const Edit = () => {
                 <label>Efficacy</label>
                 <input type="text" onChange={ (e) => setEfficacy(e.target.value)} value={efficacy} />< br/>
 
-                <button>Edit Vaccine Info</button>
+                <button>Edit Vaccine Info</button> <br />
+                {
+                    errors.efficacy ?
+                    <span className='error-message'>{errors.efficacy.message}<br/></span>
+                    : null
+                }
+                {
+                    errors.disease ?
+                    <span className='error-message'>{errors.disease.message}<br/></span>
+                    : null
+                }
+                {
+                    errors.id ?
+                    <span className='error-message'>{errors.id.message}<br/></span>
+                    : null
+                }
             </form>
             
         </div>

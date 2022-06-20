@@ -12,6 +12,7 @@ const Login = props => {
     const [ created, setCreated ] = useState(false)
     const [ efficacy, setEfficacy] = useState(0.0)
     const [ id, setId] = useState("")
+    const [ errors, setErrors ] = useState("")
 
     useEffect( () => {
         if (navigator.geolocation) {
@@ -55,6 +56,9 @@ const Login = props => {
         })
         .catch( err =>{
             console.log(`Error! ${err}`)
+            if (err.response.status === 500){
+                setErrors(err.response.data.errors)
+            }
         })
 
         //navigate('/Dashboard')
@@ -88,6 +92,11 @@ const Login = props => {
                 <input type="text" onChange={(e) => setName(e.target.value)}></input>
                 <button>Login</button>
             </form>
+            {
+                errors.username ?
+                <span className='error-message'>{errors.username.message}</span>
+                : null
+            }
 
             {
                 created ? 
