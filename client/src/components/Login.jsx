@@ -9,6 +9,9 @@ const Login = props => {
 
     const [lat, setLat] = useState('')
     const [long, setLong] = useState('')
+    const [ created, setCreated ] = useState(false)
+    const [ efficacy, setEfficacy] = useState(0.0)
+    const [ id, setId] = useState("")
 
     useEffect( () => {
         if (navigator.geolocation) {
@@ -19,8 +22,10 @@ const Login = props => {
     }, [])
 
     const showPosition = (position) => {
-        setLat( () =>  position.coords.latitude )
-        setLong( () => position.coords.longitude )
+        // setLat( () =>  position.coords.latitude )
+        // setLong( () => position.coords.longitude )
+        setLat(position.coords.latitude )
+        setLong(position.coords.longitude )
 
         logLocation(position)
     }
@@ -32,35 +37,67 @@ const Login = props => {
                 + ` Heading: ${position.coords.heading} Speed: ${position.coords.speed}`)
     }
 
-    const loginHandler = (e) => {
+    const usernameHandler = (e) => {
         e.preventDefault();
         axios.post('https://localhost:8443/api/locations',
         {
             "username": name,
             "longitude": long,
-            "latitude": lat,
-            "covidVac": "true",
-            "efficacy": ".8"
+            "latitude": lat
+            // "covidVac": "true",
+            // "efficacy": ".8"
         })
         .then( res => {
             console.log(`res:`)
             console.log(res)
+            setId(res.data._id)
+            setCreated(true)
         })
         .catch( err =>{
             console.log(`Error! ${err}`)
         })
 
-        navigate('/Dashboard')
+        //navigate('/Dashboard')
+    }
+
+    const loginHandler = (e) => {
+        e.preventDefault();
+        axios.post('https://localhost:8443/api/vaccinations',
+            {
+                "id": id,
+                "disease": "Covid-19",
+                "vaccinated": "true",
+                "efficacy": efficacy
+            })
+            .then ( res => {
+                console.log(`res:`)
+                console.log(res)
+            })
+            .catch( err => {
+                console.log(`Error! ${err}`)
+            })
+            navigate('/Dashboard')
     }
 
     return (
         <div>
             <h2>Login</h2>
             <Link to="/Dashboard">Dashboard</Link>
-            <form onSubmit={loginHandler}>
+            <form onSubmit={usernameHandler}>
+                <label>Username: </label>
                 <input type="text" onChange={(e) => setName(e.target.value)}></input>
                 <button>Login</button>
             </form>
+
+            {
+                created ? 
+                <form onSubmit={loginHandler}>
+                    <label>Covid-19 Efficacy: </label>
+                    <input type="text" onChange={ (e) => setEfficacy(e.target.value) }></input>
+                    <button>Set Efficacy</button>
+                </form>
+                : null
+            }
         </div>
     )
 }

@@ -19,13 +19,8 @@ const AllUsers = props => {
                 console.log(err.message)
                 console.log(err.config)
                 setAllLocations(
-                    [{
-                        "_id": "62a6d80e0c19331725b2d2c3", 
-                        "username": "bobby1", 
-                        "longitude": -121.9773863, 
-                        "latitude": 47.5915303, 
-                        "covidVac": "true"
-                    },
+                    [
+                    {"_id": "62a6d80e0c19331725b2d2c3", "username": "bobby1", "longitude": -121.9773863, "latitude": 47.5915303, "covidVac": "true"},
                     {"_id": '62a9615c006998505a1bb9a8', "username": 'Barnard', "longitude": -121.9778417, "latitude": 47.5913398, "covidVac": "true"},
                     {"_id": '62a965327a6763c15bc8c242', "username": 'stew', "longitude": -121.9776655, "latitude": 47.5912663, "covidVac": "true"},
                     {"_id": '62a96838661ebf46b9757856', "username": 'Aymie', "longitude": -121.9775886, "latitude": 47.5912949, "covidVac": "true"},
@@ -60,22 +55,18 @@ const AllUsers = props => {
                     <tr>
                         <th>Username</th>
                         <th>Location</th>
-                        <th>Infected</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* <tr>
-                        <td>1</td><td>1</td><td>1</td>
-                    </tr> */}
                     {
                         allLocations.map( (e, index) => (
                             <tr>
                                 <td>{e.username}</td>
                                 <td>{e.longitude}, {e.latitude}</td>
-                                <td></td>
+                                {/* <td>⭐</td> */}
                                 <td>
-                                    <Link to={`/edit/${e._id}`}>Edit</Link> | 
+                                    <Link to={`/edit/${e._id}`}>Edit Location</Link> | 
                                     <button onClick={ () => {deleteHandler(e._id)}}>Delete</button>
                                 </td>
                             </tr>

@@ -24,4 +24,4 @@ const sslServer = https.createServer({
     cert: fs.readFileSync(__dirname + '/cert/cert.pem')
 }, app)
 
-sslServer.listen(8443, () => {console.log('SSL 🔒 server started, port 8443')})
+sslServer.listen(8443, () => {console.log("SSL 🔐 server started, port 8443")})
