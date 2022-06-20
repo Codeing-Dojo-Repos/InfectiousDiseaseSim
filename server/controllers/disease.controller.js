@@ -170,13 +170,13 @@ module.exports = {
     },
 
     updateVaccinationByUsernameId: (req, res) => {
-        console.log('inside updateVaccination')
+        console.log('inside updateVaccinationByUsernameId')
         VaccinationModel.findOneAndUpdate({id:req.params.id},
             req.body,
             {new:true, runValidators:true}
             )
             .then(updatedVaccination => {
-                console.log('updated Vaccination: ' + updatedVaccination)
+                console.log('success: updated Vaccination: ' + updatedVaccination)
                 res.json(updatedVaccination)
             })
             .catch( (err) => {

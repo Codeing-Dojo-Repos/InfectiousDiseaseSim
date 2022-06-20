@@ -8,11 +8,13 @@ const DiseaseSchema = new mongoose.Schema({
     },
     longitude:{
         type:Number
-        //,min:[1920, 'nothing too old']
+        ,min:[-180, 'Longitude is too low']
+        ,max:[180, 'Longitude is too high']
     },
     latitude:{
         type:Number
-        //,min:[1920, 'nothing too old']
+        ,min:[-90, 'Latitude too low']
+        ,max:[90, 'Latitude too high']
     }
     // ,covidVac:{
     //     type: Boolean,
