@@ -115,6 +115,32 @@ module.exports = {
             })
     },
 
+    readAllVaccinations: (req, res) => {
+        console.log('inside readAllVaccinations')
+        VaccinationModel.find({})
+            .then( allVacs =>{
+                console.log(allVacs)
+                res.json(allVacs)
+            })
+            .catch( err => {
+                console.log(`error: ${err}`)
+                res.status(500).send(err)
+            })
+    },
+
+    findVaccinationByUsernameId: (req, res) => {
+        console.log('inside findVaccinationById')
+        VaccinationModel.findOne({id:req.params.id})
+            .then( (vacObj) => {
+                console.log(vacObj)
+                return res.json(vacObj)
+            })
+            .catch( (err) => {
+                console.log(`err: ${err}`)
+                return res.status(500).send(err)
+            })
+    },
+
     createVaccination: (req, res) => {
         console.log('inside createVaccination')
         VaccinationModel.create(req.body)
@@ -125,6 +151,37 @@ module.exports = {
             .catch( (err) => {
                 console.log(`error: ${err}`)
                 res.status(500).json(err)
+            })
+    },
+
+    deleteVaccination: (req, res) => {
+        console.log('inside deleteVaccination')
+
+        VaccinationModel.deleteOne({_id:req.params._id})
+            .then( deletedVac => {
+                console.log('Great Success! Location deleted')
+                console.log(deletedVac)
+                return res.json(deletedVac)
+            })
+            .catch( (err) => {
+                console.log(`error: ${err}`)
+                return res.status(500).send(err)
+            })
+    },
+
+    updateVaccinationByUsernameId: (req, res) => {
+        console.log('inside updateVaccination')
+        VaccinationModel.findOneAndUpdate({id:req.params.id},
+            req.body,
+            {new:true, runValidators:true}
+            )
+            .then(updatedVaccination => {
+                console.log('updated Vaccination: ' + updatedVaccination)
+                res.json(updatedVaccination)
+            })
+            .catch( (err) => {
+                console.log(`error: ${err}`)
+                return res.status(500).send(err)
             })
     }
 }

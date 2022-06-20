@@ -13,16 +13,16 @@ const DiseaseSchema = new mongoose.Schema({
     latitude:{
         type:Number
         //,min:[1920, 'nothing too old']
-    },
-    covidVac:{
-        type: Boolean,
-        required: [true, "were they vac against covid?"]
-    },
-    efficacy:{
-        type:Number
-        ,min:[0, 'efficacy too low']
-        ,max:[1, 'efficacy too high']
     }
+    // ,covidVac:{
+    //     type: Boolean,
+    //     required: [true, "were they vac against covid?"]
+    // }
+    // ,efficacy:{
+    //     type:Number
+    //     ,min:[0, 'efficacy too low']
+    //     ,max:[1, 'efficacy too high']
+    // }
 }, {timestamps: true})
 
 const collection = 'UserLocation' // name of collection (table)
