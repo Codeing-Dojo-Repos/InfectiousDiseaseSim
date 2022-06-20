@@ -4,7 +4,7 @@
 1. ✔ create new template project
 1. ✔ create DB schema
 1. ✔ create db name in config
-1. 🟧 Create a new table for vac status
+1. ✔ Create a new table for vac status
 
 ## Write Controller to 
 1. ✔ create entry for location
@@ -39,11 +39,11 @@
 2. ✔ print the position to the dashboard
 
 ## On Dashboard query all users
-1. 🟧 Query all users and put in a large State array
+1. 🟧 Create table of vaccine info for Covid-19
 2. ✔ Write js algo to cal calculate the distance between user and all users
 
 ## Write js algorithm to calculate distance
-1. 🟧 filter the list to remove the current user
+1. 🚫 filter the list to remove the current user
 1. ✔ calculate distance between one user and all users in the list
 
 ## Create All Users component
@@ -52,8 +52,10 @@
 3. ✔ Add link to update a user
 
 ## Edit component
-1. 🟧 Apply considerations for input
-1. 
+1. 🟧 Apply considerations for input. Test with postman first
+
+## Tracking page
+1. Create tracking page for mobile phones
 
 ## Links
 https://www.youtube.com/playlist?list=PLXEoYMZ_3QsVvA59DZvNF7RNrBTAbtcAs
