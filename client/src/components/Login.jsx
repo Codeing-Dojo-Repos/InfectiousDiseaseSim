@@ -84,31 +84,33 @@ const Login = props => {
     }
 
     return (
-        <div class="w3-card-4">
-            <div class="w3-container w3-blue">
-                <h2>Login</h2>
-            </div>
-            <Link to="/Dashboard">Dashboard</Link>
-            <form onSubmit={usernameHandler} class="w3-container">
-                <label>Username: </label>
-                <input class="w3-input" type="text" onChange={(e) => setName(e.target.value)}></input>
-                <button class="w3-button w3-section w3-blue w3-ripple">Login</button>
-            </form>
-            {
-                errors.username ?
-                <span className='error-message'>{errors.username.message}</span>
-                : null
-            }
-
-            {
-                created ? 
-                <form class="w3-container" onSubmit={loginHandler}>
-                    <label>Covid-19 Efficacy: </label>
-                    <input class="w3-input" type="text" onChange={ (e) => setEfficacy(e.target.value) }></input>
-                    <button class="w3-button w3-section w3-blue w3-ripple">Set Efficacy</button>
+        <div className='w3-container'>
+            <div class="w3-card-4 w3-margin">
+                <div class="w3-container w3-blue">
+                    <h2>Login</h2>
+                </div>
+                <Link to="/Dashboard">Dashboard</Link>
+                <form onSubmit={usernameHandler} class="w3-container">
+                    <label>Username: </label>
+                    <input class="w3-input" type="text" onChange={(e) => setName(e.target.value)}></input>
+                    <button class="w3-button w3-section w3-blue w3-ripple">Login</button>
                 </form>
-                : null
-            }
+                {
+                    errors.username ?
+                    <span className='error-message'>{errors.username.message}</span>
+                    : null
+                }
+
+                {
+                    created ? 
+                    <form class="w3-container" onSubmit={loginHandler}>
+                        <label>Covid-19 Efficacy: </label>
+                        <input class="w3-input" type="text" onChange={ (e) => setEfficacy(e.target.value) }></input>
+                        <button class="w3-button w3-section w3-blue w3-ripple">Set Efficacy</button>
+                    </form>
+                    : null
+                }
+            </div>
         </div>
     )
 }

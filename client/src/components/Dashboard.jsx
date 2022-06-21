@@ -13,7 +13,7 @@ const Dashboard = props => {
 
     useEffect( () => {
         if (navigator.geolocation) {
-            navigator.geolocation.watchPosition(showPosition); // removing watchPosition
+            navigator.geolocation.watchPosition(showPosition); // removing watchPosition, getCurrentPosition
         } else { 
             console.log("Geolocation is not supported by this browser.")
         }
@@ -138,31 +138,35 @@ const Dashboard = props => {
     }
 
     return (
-        <div>
-            
+        <div className='w3-container'>
             <h2>Dashboard</h2>
             <Link to="/AllUsers">All Users</Link> <Link to="/">Login</Link>
-            <div class="w3-container">
+            {/* <div class="w3-container"> */}
                 <div class="w3-card-4 w3-margin">
                     <div class="w3-container w3-blue">
-                        <h2>Edit Location</h2>
+                        <h2>Location</h2>
                     </div>
                     <div class="w3-container">
                         <p>Latitude: {lat}</p>
                         <p>Longitude: {long}</p>
                         <p>accuracy: {accuracy}</p>
                         <p>Altitude: {altitude}</p>
-                        {
-                            infected ? 
-                            <p>Infected 🐛</p>
-                            : <p>Clean 😊</p>
-                        }
+
+                            <div class="w3-container w3-center">
+                                {
+                                infected ? 
+                                <span class="w3-jumbo">🤢</span>
+                                : <span class="w3-jumbo">😊</span>
+                                }
+                            </div>
+                            
+                        
                     </div>
                     <div class="w3-container">
                     <button class="w3-button w3-border w3-blue w3-section" onClick={ calcDistance }>Calculate Distance</button>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </div>
     )
 }

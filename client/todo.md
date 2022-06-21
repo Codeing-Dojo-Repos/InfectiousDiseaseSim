@@ -55,7 +55,7 @@
 1. ✔ Apply considerations for input. Test with postman first
 
 ## Tracking page
-1. Create tracking page for mobile phones
+1. 🟧 Create tracking page for mobile phones
 
 ## Links
 https://www.youtube.com/playlist?list=PLXEoYMZ_3QsVvA59DZvNF7RNrBTAbtcAs
