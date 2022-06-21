@@ -47,12 +47,12 @@ const AllUsers = props => {
     }
 
     return (
-        <div>
+        <div class="w3-container">
             <h2>All Users</h2>
-            <Link to="/Dashboard">Dashboard</Link> <Link to="/">Login</Link>
-            <table>
+            <Link to="/Dashboard" class="w3button w3-border">Dashboard</Link> <Link to="/">Login</Link>
+            <table class="w3-table-all w3-hoverable">
                 <thead>
-                    <tr>
+                    <tr class="w3-blue">
                         <th>Username</th>
                         <th>Location</th>
                         <th>Actions</th>
@@ -66,8 +66,8 @@ const AllUsers = props => {
                                 <td>{e.longitude}, {e.latitude}</td>
                                 {/* <td>⭐</td> */}
                                 <td>
-                                    <Link to={`/edit/${e._id}`}>Edit Location</Link> | 
-                                    <button onClick={ () => {deleteHandler(e._id)}}>Delete</button>
+                                    <Link to={`/edit/${e._id}`}>Edit</Link> | 
+                                    <button class="w3-button w3-blue w3-ripple" onClick={ () => {deleteHandler(e._id)}}>Delete</button>
                                 </td>
                             </tr>
                         ))
