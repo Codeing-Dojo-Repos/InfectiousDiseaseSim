@@ -81,38 +81,47 @@ const Edit = () => {
     }
 
     return (
-        <div>
-            Edit
-            <form onSubmit={editLocationHandler}>
+        <div class="w3-container">
 
-                <label>Longitude</label>
-                <input type="text" onChange={ (e) => setLong(e.target.value)} value={long} /> < br/>
+            <div class="w3-card-4 w3-margin">
+                <div class="w3-container w3-blue">
+                    <h2>Edit Location</h2>
+                </div>
+                <form class="w3-container" onSubmit={editLocationHandler}>
 
-                <label>Latitude</label>
-                <input type="text" onChange={ (e) => setLat(e.target.value)} value={lat} /> < br/>
+                    <label>Longitude</label>
+                    <input class="w3-input w3-border" type="text" onChange={ (e) => setLong(e.target.value)} value={long} />
 
-                <button>Edit Location</button><br />
-                {
-                    errors.longitude ?
-                    <span className='error-message'>{errors.longitude.message}<br/></span> 
-                    : null
-                }
-                {
-                    errors.latitude ?
-                    <span className='error-message'>{errors.latitude.message}</span>
-                    : null
-                }
-                
-            </form>
+                    <label>Latitude</label>
+                    <input class="w3-input w3-border" type="text" onChange={ (e) => setLat(e.target.value)} value={lat} />
 
-            <form onSubmit={editVaccineHandler}>
+                    <button class="w3-button w3-border w3-blue w3-section">Edit Location</button><br />
+                    {
+                        errors.longitude ?
+                        <span className='error-message'>{errors.longitude.message}<br/></span> 
+                        : null
+                    }
+                    {
+                        errors.latitude ?
+                        <span className='error-message'>{errors.latitude.message}</span>
+                        : null
+                    }
+                    
+                </form>
+            </div>
+
+            <div class="w3-card-4 w3-margin">
+                <div class="w3-container w3-blue">
+                    <h2>Edit Vaccine</h2>
+                </div>
+            <form class="w3-container" onSubmit={editVaccineHandler}>
                 <label>Covid Vaccine</label>
-                <input type="text" onChange={ (e) => setCovidVac(e.target.value)} value={covidVac} />< br/>
+                <input class="w3-input w3-border" type="text" onChange={ (e) => setCovidVac(e.target.value)} value={covidVac} />
 
                 <label>Efficacy</label>
-                <input type="text" onChange={ (e) => setEfficacy(e.target.value)} value={efficacy} />< br/>
+                <input class="w3-input w3-border" type="text" onChange={ (e) => setEfficacy(e.target.value)} value={efficacy} />
 
-                <button>Edit Vaccine Info</button> <br />
+                <button class="w3-button w3-border w3-section w3-blue" >Edit Vaccine Info</button> <br />
                 {
                     errors.efficacy ?
                     <span className='error-message'>{errors.efficacy.message}<br/></span>
@@ -129,7 +138,8 @@ const Edit = () => {
                     : null
                 }
             </form>
-            
+            </div>
+
         </div>
     )
 }

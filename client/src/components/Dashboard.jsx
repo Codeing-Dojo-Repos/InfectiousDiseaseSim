@@ -141,18 +141,28 @@ const Dashboard = props => {
         <div>
             
             <h2>Dashboard</h2>
-            <Link to="/AllUsers">All Users</Link> <Link to="/">Login</Link>  
-                <p>Latitude: {lat}</p>
-                <p>Longitude: {long}</p>
-                <p>accuracy: {accuracy}</p>
-                <p>Altitude: {altitude}</p>
-                 {
-                     infected ? 
-                     <p>Infected 🐛</p>
-                     : <p>Clean 😊</p>
-                 }
-            <button onClick={ calcDistance }>Calculate Distance</button>
-
+            <Link to="/AllUsers">All Users</Link> <Link to="/">Login</Link>
+            <div class="w3-container">
+                <div class="w3-card-4 w3-margin">
+                    <div class="w3-container w3-blue">
+                        <h2>Edit Location</h2>
+                    </div>
+                    <div class="w3-container">
+                        <p>Latitude: {lat}</p>
+                        <p>Longitude: {long}</p>
+                        <p>accuracy: {accuracy}</p>
+                        <p>Altitude: {altitude}</p>
+                        {
+                            infected ? 
+                            <p>Infected 🐛</p>
+                            : <p>Clean 😊</p>
+                        }
+                    </div>
+                    <div class="w3-container">
+                    <button class="w3-button w3-border w3-blue w3-section" onClick={ calcDistance }>Calculate Distance</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
